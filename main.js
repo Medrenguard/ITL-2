@@ -19,7 +19,12 @@ const app = new Vue({
             return this.selected.productIndex !== null ? this.products[this.selected.productIndex].price : 0
         },
         getTotal() {
-            return this.selectedItemPrice * this.selected.count || 0
+            let res = 0;
+            for (let i = 0; i < this.cart.length; i++) {
+                res += this.products[this.cart[i].productIndex].price * this.cart[i].count;
+            }
+            res += this.selectedItemPrice * this.selected.count;
+            return res;
         }
     },
     methods:{
