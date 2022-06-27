@@ -9,28 +9,25 @@ const app = new Vue({
             {id: 4, name: "Бананы", price: 50}
         ],
         selected: {
-            productId: 1,
-            count: 1
+            productIndex: null,
+            count: null
         },
         cart:[]
     },
     computed: {
         selectedItemPrice() {
-            return this.selected.productId !== null ? this.products.find(el => el.id === this.selected.productId).price : 0
+            return this.selected.productIndex !== null ? this.products[this.selected.productIndex].price : 0
         },
         getTotal() {
             return this.selectedItemPrice * this.selected.count || 0
         }
     },
     methods:{
-        getProductById(desiredId) {
-            return this.products.find(el => el.id == desiredId)
-        },
         addInCart() {
             this.cart.push(Object.assign({}, this.selected))
         },
         clearSelect() {
-            this.selected.productId = null;
+            this.selected.productIndex = null;
             this.selected.count = null;
         }
     }
