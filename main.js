@@ -9,8 +9,8 @@ const app = new Vue({
             {id: 4, name: "Бананы", price: 50}
         ],
         selected: {
-            productId: 1,
-            count: 1
+            productId: null,
+            count: null
         },
         cart:[]
     },
@@ -24,7 +24,7 @@ const app = new Vue({
     },
     methods:{
         getProductById(desiredId) {
-            return this.products.find(el => el.id == desiredId)
+            return this.products.find(el => el.id === desiredId)
         },
         addInCart() {
             this.cart.push(Object.assign({}, this.selected))

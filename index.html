@@ -34,7 +34,7 @@
                         <select name="product" v-model="selected.productId">
                             <option 
                                 v-for="product in products"
-                                key="product.id"
+                                :key="product.id"
                                 :value="product.id"
                                 >
                                 {{ product.name }}
@@ -50,8 +50,8 @@
                     </td>
                 </tr>
                 <tr 
-                    v-for="item in cart"
-                    key="item.id"
+                    v-for="(item, i) in cart"
+                    :key="i"
                     >
                     <td>{{ getProductById(item.productId).name }}</td>
                     <td>{{ getProductById(item.productId).price }}</td>
