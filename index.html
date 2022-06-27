@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Корзина</h1>
+        <button @click="addInCart()">Добавить</button>
+        <table>
+            <thead>
+                <tr>
+                    <td>Товар</td>
+                    <td>Стоимость</td>
+                    <td>Количество</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>Итого:</td>
+                    <td>{{ getTotal }}</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>
+                        <select name="product" v-model="selected.productId">
+                            <option 
+                                v-for="product in products"
+                                key="product.id"
+                                :value="product.id"
+                                >
+                                {{ product.name }}
+                            </option>
+                        </select>
+                    </td>
+                    <td>{{ selectedItemPrice }}</td>
+                    <td>
+                        <input type="number" v-model="selected.count">
+                    </td>
+                    <td>
+                        <button @click="clearSelect()">Очистить</button>
+                    </td>
+                </tr>
+                <tr 
+                    v-for="item in cart"
+                    key="item.id"
+                    >
+                    <td>{{ getProductById(item.productId).name }}</td>
+                    <td>{{ getProductById(item.productId).price }}</td>
+                    <td>{{ item.count }}</td>
+                    <td>
+                        <button>Удалить</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
