@@ -10,7 +10,7 @@
 <body>
     <div id="app">
         <h1>Корзина</h1>
-        <button @click="addInCart()">Добавить</button>
+        <button @click="addInCart()" class="addProduct">Добавить</button>
         <table>
             <thead>
                 <tr>
@@ -23,7 +23,7 @@
             <tfoot>
                 <tr>
                     <td></td>
-                    <td>Итого:</td>
+                    <td class="sum">Итого:</td>
                     <td>{{ getTotal }}</td>
                     <td></td>
                 </tr>

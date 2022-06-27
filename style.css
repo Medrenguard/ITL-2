@@ -1,7 +1,17 @@
 table {
     border-collapse: collapse;
 }
+thead, .sum {
+    font-weight: 900;
+    text-align: center;
+}
+tbody, tfoot {
+    text-align: right;
+}
 td {
     border: 1px solid;
     padding: 10px;
+}
+.addProduct {
+    margin-bottom: 20px;
 }
