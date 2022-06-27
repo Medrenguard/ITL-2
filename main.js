@@ -31,6 +31,9 @@ const app = new Vue({
         addInCart() {
             this.cart.push(Object.assign({}, this.selected))
         },
+        deleteFromCart(id) {
+            this.cart.splice(id, 1)
+        },
         clearSelect() {
             this.selected.productIndex = null;
             this.selected.count = null;

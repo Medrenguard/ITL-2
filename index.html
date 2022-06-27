@@ -57,7 +57,7 @@
                     <td>{{ products[item.productIndex].price }}</td>
                     <td>{{ item.count }}</td>
                     <td>
-                        <button>Удалить</button>
+                        <button @click="deleteFromCart(i)">Удалить</button>
                     </td>
                 </tr>
             </tbody>
