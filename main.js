@@ -26,6 +26,7 @@ const app = new Vue({
             res += this.selectedItemPrice * this.selected.count;
             return res;
         }
+
     },
     methods:{
         addInCart() {
@@ -37,6 +38,9 @@ const app = new Vue({
         clearSelect() {
             this.selected.productIndex = null;
             this.selected.count = null;
+        },
+        readyToAdd() {
+            return this.selected.productIndex !== null && this.selected.count !== null
         }
     }
     });

@@ -10,7 +10,13 @@
 <body>
     <div id="app">
         <h1>Корзина</h1>
-        <button @click="addInCart()" class="addProduct">Добавить</button>
+        <button 
+            @click="addInCart()" 
+            :disabled="!readyToAdd()"
+            class="addProduct"
+            >
+            Добавить
+        </button>
         <table>
             <thead>
                 <tr>
@@ -31,7 +37,8 @@
             <tbody>
                 <tr>
                     <td>
-                        <select name="product" v-model="selected.productIndex">
+                        <select 
+                            name="product" v-model="selected.productIndex">
                             <option 
                                 v-for="(product, i) in products"
                                 :key="i"
